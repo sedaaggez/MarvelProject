@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "768998241858",
+    "project_id": "marvelproject-c7832",
+    "storage_bucket": "marvelproject-c7832.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768998241858:android:8543d1d5cfccf1e8e95fdb",
+        "android_client_info": {
+          "package_name": "com.sedaaggez.marvelproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "768998241858-jvqi26ln5l3fhfbuq4k9dr9ji84782g7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBM7XtA42TEArd4h51rhsIBtjJ9Ue0aCV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "768998241858-jvqi26ln5l3fhfbuq4k9dr9ji84782g7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

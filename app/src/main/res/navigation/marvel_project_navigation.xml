@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/marvel_project_navigation"
+    app:startDestination="@id/charactersFragment">
+
+    <fragment
+        android:id="@+id/charactersFragment"
+        android:name="com.sedaaggez.marvelproject.view.CharactersFragment"
+        android:label="Marvel Characters">
+        <action
+            android:id="@+id/action_charactersFragment_to_characterDetailFragment"
+            app:destination="@id/characterDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/characterDetailFragment"
+        android:name="com.sedaaggez.marvelproject.view.CharacterDetailFragment"
+        android:label="Character Detail">
+        <action
+            android:id="@+id/action_characterDetailFragment_to_charactersFragment"
+            app:destination="@id/charactersFragment" />
+        <argument
+            android:name="characterResult"
+            app:argType="com.sedaaggez.marvelproject.model.character.CharacterResult" />
+    </fragment>
+</navigation>
