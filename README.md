@@ -24,7 +24,3 @@ Add your API key and PRIVATE key in Constants file. ( get api key -> https://dev
 const val API_KEY = "your_api_key"
 const val PRIVATE_KEY = "your_private_key"
 ```
-
-# How to run the project
-
-In the Constants file  add the public key and private keys you will have here.
