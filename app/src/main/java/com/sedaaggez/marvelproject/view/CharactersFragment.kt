@@ -1,6 +1,8 @@
 package com.sedaaggez.marvelproject.view
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -25,6 +27,7 @@ class CharactersFragment : Fragment() {
     private var offset = 0
     private var page = 1
     private var total = 0
+    private lateinit var linearLayoutManager: LinearLayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +47,11 @@ class CharactersFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(CharactersViewModel::class.java)
         val timeStamp = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis())
 
+        recyclerViewCharacters.layoutManager = LinearLayoutManager(context)
+        recyclerViewCharacters.adapter = characterAdapter
+
+        linearLayoutManager = recyclerViewCharacters.layoutManager as LinearLayoutManager
+
         if (offset == 0) {
             viewModel.getMarvelDataCharacter(
                 API_KEY,
@@ -53,28 +61,35 @@ class CharactersFragment : Fragment() {
                 CHARACTER_LIMIT
             )
         }
-        recyclerViewCharacters.layoutManager = LinearLayoutManager(context)
-        recyclerViewCharacters.adapter = characterAdapter
+
 
         recyclerViewCharacters.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
                 if (dy > 0) {
-                    if (offset < total) {
+                    var findLastCompletelyVisibleItemPosition =
+                        linearLayoutManager.findLastCompletelyVisibleItemPosition()
+                    var itemCount = linearLayoutManager.itemCount
+
+                    if (offset < total && findLastCompletelyVisibleItemPosition == itemCount - 1) {
+
                         page++
                         offset = (page - 1) * CHARACTER_LIMIT
 
-                        viewModel.getMarvelDataCharacter(
-                            API_KEY,
-                            generate(timeStamp, PRIVATE_KEY, API_KEY),
-                            timeStamp,
-                            offset,
-                            CHARACTER_LIMIT
-                        )
-
-
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            viewModel.getMarvelDataCharacter(
+                                API_KEY,
+                                generate(timeStamp, PRIVATE_KEY, API_KEY),
+                                timeStamp,
+                                offset,
+                                CHARACTER_LIMIT
+                            )
+                            linearLayoutManager.scrollToPosition(0)
+                        }, 5000)
                     }
                 }
+
+                super.onScrolled(recyclerView, dx, dy)
+
             }
         })
 
