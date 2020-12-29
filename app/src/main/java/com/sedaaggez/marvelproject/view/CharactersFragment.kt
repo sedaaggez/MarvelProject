@@ -1,8 +1,6 @@
 package com.sedaaggez.marvelproject.view
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -71,11 +69,8 @@ class CharactersFragment : Fragment() {
                     var itemCount = linearLayoutManager.itemCount
 
                     if (offset < total && findLastCompletelyVisibleItemPosition == itemCount - 1) {
-
                         page++
                         offset = (page - 1) * CHARACTER_LIMIT
-
-                        Handler(Looper.getMainLooper()).postDelayed({
                             viewModel.getMarvelDataCharacter(
                                 API_KEY,
                                 generate(timeStamp, PRIVATE_KEY, API_KEY),
@@ -83,8 +78,6 @@ class CharactersFragment : Fragment() {
                                 offset,
                                 CHARACTER_LIMIT
                             )
-                            linearLayoutManager.scrollToPosition(0)
-                        }, 5000)
                     }
                 }
 

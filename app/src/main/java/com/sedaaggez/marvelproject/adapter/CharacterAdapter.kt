@@ -55,7 +55,6 @@ class CharacterAdapter(val resultList: ArrayList<CharacterResult>) :
     }
 
     fun updateResultList(newResultList: List<CharacterResult>) {
-        resultList.clear()
         resultList.addAll(newResultList)
         notifyDataSetChanged()
     }
