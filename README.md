@@ -1,4 +1,4 @@
-# MarvelProject
+# Marvel Project
 
 It is a Marvel Character List application.
 30 characters appear on the first page, each time 30 new characters come to the new page at the end of the page.
@@ -17,6 +17,14 @@ After clicking on the character, it lists its picture, name, description and max
 - Navigation
 - Fireabase Analytics
 
-# How to run the project
+# How to build on your environment
 
-In the Constants file https://developer.marvel.com/documentation/getting_started add the public key and private keys you will have here.
+Add your API key and PRIVATE key in Constants file. ( get api key -> https://developer.marvel.com/documentation/getting_started)
+```xml
+const val API_KEY = "your_api_key"
+const val PRIVATE_KEY = "your_private_key"
+```
+
+# License
+
+This project is licensed under the  GNU General Public License v3.0 License - see the [LICENSE](LICENSE) file for details.
