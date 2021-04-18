@@ -15,7 +15,7 @@ After clicking on the character, it lists its picture, name, description and max
 - LiveData
 - Data Binding
 - Navigation
-- Fireabase Analytics
+- Firebase Analytics
 
 # How to build on your environment
 
