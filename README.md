@@ -16,6 +16,7 @@ After clicking on the character, it lists its picture, name, description and max
 - Data Binding
 - Navigation
 - Firebase Analytics
+- Infinite scroll list, Pagination
 
 # How to build on your environment
 
